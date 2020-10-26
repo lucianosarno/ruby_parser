@@ -1,4 +1,4 @@
-require 'Nokogiri'
+require 'nokogiri'
 require 'open-uri'
 cagometro = Nokogiri::HTML(URI.open('http://www.cagometro.com/'))
 
