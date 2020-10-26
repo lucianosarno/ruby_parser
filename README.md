@@ -1,4 +1,4 @@
-# Capstone Project (Ruby Parser)
+# Capstone Project (Ruby Scraper)
 
 > This is my Capstone Project for the Ruby module of the Microverse course.
 In this project, I was required to create a parser from any website available on the internet.
