@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rubocop', '~>0.81.0'
 gem 'colorize', '~> 0.8.1'
 gem 'nokogiri'
 gem 'open-uri'
+gem 'rubocop', '~>0.81.0'
 gem 'tty-font'
