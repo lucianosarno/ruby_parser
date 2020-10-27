@@ -8,13 +8,11 @@ class Interaction
 
   def communicate(phrase, _type = 'information')
     case _type
-    when 'welcome'
+    when 'welcome', 'spotlight'
       font = TTY::Font.new(:standard)
       puts font.write(phrase).colorize(:green).to_s
-    when 'information'
+    when 'information', 'question'
       puts phrase.colorize(:green).to_s
-    when 'question'
-      puts phrase.colorize(:blue).to_s
     when 'call_action'
       puts phrase.colorize(:yellow).to_s
     else
@@ -41,8 +39,8 @@ class Interaction
   def cagada_talks
     know_cagada = ''
     until know_cagada == 'Y' || know_cagada == 'N'
-      communicate("#{@name}, tell me: do you know what means 'cagada'?", 'ask')
-      communicate('(Please type Y or N)', 'ask')
+      communicate("#{@name}, tell me: do you know what means 'cagada'?", 'question')
+      communicate('(Please type Y or N)', 'call_action')
       know_cagada = gets.chomp
     end
     cagada_definition = "he literal translation to english is 'shit', but is popularly used to name as 'cagada' some very bad thing that happened or a very bad mistake someone did."
@@ -62,14 +60,20 @@ class Interaction
 
   def explain_program
     communicate("Okay, now we are already 'conceptual leveled'.", 'information')
-    communicate("Let's go through nuts and bolts!", 'information')
+    communicate("Let's go through...", 'information')
+    ask_enter
+    communicate('NUTS AND BOLTS!', 'spotlight')
     ask_enter
     communicate("This program has the job to catch information from a website called 'cagometro' (in English, it would be translated as some like 'shitometer').", 'information')
     communicate("This website, although unfortunately seems to be no longer being updated, catch from daily news all the (almost infinite) 'cagadas' from Brasil actual President Jair Bolsonaro.", 'information')
     ask_enter
-    communicate("To be honest, while developing this program and looking the website, I'm remembering thousands of other and worst 'cagadas' done by our president that are not mentioned in the 'cagometro' website, but I understand that catch all those things, would require a lot of effort!", 'information')
+    communicate("To be honest, while developing this program and looking the website, I'm remembering thousands of other and worst 'cagadas' done by our president that are not mentioned in the 'cagometro' website...", 'information')
+    ask_enter
+    communicate("...but I understand that catch all those things, would require a lot of effort!", 'information')
     ask_enter
     communicate('So much effort that only giant companies like Google, Facebook and few others could carry on!', 'information')
     ask_enter
-  end
+    communicate('So much effort that only giant companies like Google, Facebook and few others could carry on!', 'information')
+    ask_enter
+    end
 end
