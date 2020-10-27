@@ -2,7 +2,7 @@
 
 require 'colorize'
 require 'tty-font'
-#this class embraces all user interactions
+#this class embraces all user interactions before lauching the parsing operation
 class Interaction
   def initialize; end
 
