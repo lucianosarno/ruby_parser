@@ -2,15 +2,21 @@ require 'colorize'
 require 'tty-font'
 class Interaction
   def initialize
+    
   end
   def communicate(phrase, type = 'information')
     case phrase
     when 'welcome'
-      puts "#{phrase}".colorize(:green)
+      font = TTY::Font.new(:standard)
+      puts Pastel.green(font.write(phrase))
+      puts font.write("TEST")
+
     when 'information'
-      puts "#{phrase}".colorize(:green)
+      puts "#{phrase.colorize(:green)}"
     when 'ask'
-      puts "#{phrase}".colorize(:blue)
+      puts "#{phrase.colorize(:green)}"
+    else
+      puts "#{phrase.colorize(:green)}"
     end
   end  
   def ask_name
