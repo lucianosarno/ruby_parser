@@ -1,5 +1,5 @@
-require 'nokogiri'
-require 'open-uri'
+
+require_relative '../lib/parse.rb'
 cagometro = Nokogiri::HTML(URI.open('http://www.cagometro.com/'))
 
 cagadas = cagometro.xpath('//p[contains(.,"2020") or contains(.,"DE 2019")]//text() | //p[contains(.,"Dia")]//a//text() | //p[contains(.,"2020") or contains(.,"DE 2019")]//a//text()')
