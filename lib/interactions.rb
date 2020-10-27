@@ -7,12 +7,10 @@ class Interaction
   def initialize; end
 
   def communicate(phrase, _type = 'information')
-    case phrase
+    case _type
     when 'welcome'
       font = TTY::Font.new(:standard)
-      puts Pastel.green(font.write(phrase))
-      puts font.write('TEST')
-
+      puts font.write(phrase).colorize(:green).to_s
     when 'information'
       puts phrase.colorize(:green).to_s
     when 'question'
@@ -20,7 +18,7 @@ class Interaction
     when 'call_action'
       puts phrase.colorize(:yellow).to_s
     else
-      puts phrase
+      puts phrase.colorize(:yellow).to_s
     end
   end
 
