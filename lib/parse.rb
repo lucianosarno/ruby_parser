@@ -19,25 +19,27 @@ class Parse
     year = 0
     month_i = 0
     day_i = 0
-    @cagadas[0..10].each do |cagada|
+    @cagadas.each do |cagada|
       cagada_str = cagada.to_s
-      title = ''
-      if cagada_str.include? ' DE '
-        if cagada_str.include? "2020"
-          year = 2020
-        elsif cagada_str.include? "2019"
-          year = 2019
+      unless cagada_str.length < 5
+        title = ''
+        if cagada_str.include? ' DE 20'
+          if cagada_str.include? "2020"
+            year = 2020
+          elsif cagada_str.include? "2019"
+            year = 2019
+          end
+          month_str = cagada_str[0, cagada_str.length - 8]
+          month_i = portuguese_months[month_str.to_sym]
+        elsif cagada_str.include? 'Dia'
+          day_i = cagada_str[4, 5].to_i
+          @date = Date.new(year,month_i,day_i)
+        else 
+          title = cagada_str
         end
-        month_str = cagada_str[0, cagada_str.length - 8]
-        month_i = portuguese_months[month_str.to_sym]
-      elsif cagada_str.include? 'Dia'
-        day_i = cagada_str[-2, cagada_str.length - 1].to_i
-        date = Date.new(year,month_i,day_i)
-      else
-        title = cagada_str
+        puts "/#{@date}|#{title}/" unless @date == nil || title == ''
+
       end
-      puts cagada_str
-      puts "#{date} | #{title}" unless date == nil || title == ''
     end
   end
 end
