@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require '../lib/interactions.rb'
 
 describe Interaction do

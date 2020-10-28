@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-# rubocop:disable Metrics/MethodLength, Layout/LineLength, Style/IdenticalConditionalBranches
+# rubocop:disable Layout/LineLength, Style/IdenticalConditionalBranches
 
 require 'colorize'
 require 'tty-font'
@@ -90,4 +88,4 @@ class Interaction
   end
 end
 
-# rubocop:enable Metrics/MethodLength, Layout/LineLength, Style/IdenticalConditionalBranches
+# rubocop:enable Layout/LineLength, Style/IdenticalConditionalBranches
