@@ -19,9 +19,15 @@ describe Interaction do
       expect(inter.ask_enter).to eq('class')
     end 
   end  
+  describe '#ask_y_or_n' do
+    it 'gets the ENTER inputed by user' do
+      allow_any_instance_of(Interaction).to receive(:gets).and_return('class')
+      expect(inter.ask_y_or_n).to eq('class')
+    end 
+  end  
   describe '#cagada_talks' do
     it "cagada_talks should return true" do
-      expect {inter.cagada_talks}.to eql(true)
+      expect(inter.cagada_talks).to eql(true)
     end  
   end  
 end
