@@ -21,7 +21,7 @@ describe Interaction do
       expect(inter.ask_enter).to eq('class')
     end
   end
-  describe '#ask_y_or_n' do
+  describe '#know_cagada_str' do
     it 'gets the ENTER inputed by user' do
       allow_any_instance_of(Interaction).to receive(:gets).and_return('class')
       expect(inter.ask_y_or_n).to eq('class')
