@@ -4,8 +4,11 @@ require 'colorize'
 require 'tty-font'
 #this class embraces all user interactions before lauching the parsing operation
 class Interaction
-  def initialize; end
-
+  def initialize(input: $stdin, output: $stdout)
+    @input = input
+    @output = output
+  end
+  
   def communicate(phrase, _type = 'information')
     case _type
     when 'welcome', 'spotlight'
