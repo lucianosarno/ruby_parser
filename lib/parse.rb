@@ -10,18 +10,21 @@ class Parse
   end
 
   def catch_cagadas
-    @cagadas = @cagometro.xpath('//p[contains(.,"2020") or contains(.,"DE 2019")]//text() | //p[contains(.,"Dia")]//a//text() | //p[contains(.,"2020") or contains(.,"DE 2019")]//a//text()')
+    @cagadas = @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text() | //p[contains(.,"Dia")]//a//text() | //p[contains(.,"2020") or contains(.,"2019")]//a//text()')
   end
 
   def organize_cagadas
+    portuguese_months = {'JANEIRO': 1, 'FEVEREIRO': 2, 'MARÇO': 3, 'ABRIL': 4, 'MAIO': 5, 'JUNHO': 6, 'JULHO': 7, 'AGOSTO': 8, 'SETEMBRO': 9, 'OUTUBRO': 10, 'NOVEMBRO': 11, 'DEZEMBRO': 12}
     @cagadas.each do |cagada|
+      cagada_string = cagada.to_s
       year = 0
-      if cagada.include?("2020")
+      if cagada_string.include? '2020' || cagada_string.include? '2020'
+      if cagada_string.include? "2020"
         year = 2020
-      elsif cagada.include?("2019")
+      elsif cagada_string.include? "2019"
         year = 2019
       end
-      puts year
+      puts cagada if cagada_string.include? "2020"
       month = 0
       day = 0
       title = ''
