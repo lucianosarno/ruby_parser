@@ -16,7 +16,7 @@ class Interaction
     when 'call_action'
       puts phrase.colorize(:yellow).to_s
     else
-      puts phrase.colorize(:yellow).to_s
+      puts phrase
     end
   end
 
