@@ -38,15 +38,15 @@ class Interaction
   end
 
   def cagada_talks
-    know_cagada = ''
-    until know_cagada == 'Y' || know_cagada == 'N'
+    @know_cagada = ''
+    until @know_cagada == 'Y' || @know_cagada == 'N'
       communicate("#{@name}, tell me: do you know what means 'cagada'?", 'question')
       communicate('(Please type Y or N)', 'call_action')
-      know_cagada = gets.chomp
+      @know_cagada = gets.chomp
     end
     cagada_definition = "he literal translation to english is 'shit', but is popularly used to name as 'cagada' some very bad thing that happened or a very bad mistake someone did."
     cagada_importance = "ar away worst than use something that sounds a bad word, is to have a president that do tons of terrible mistakes, all of them fairly called 'cagadas', and these mistakes have serious consequences to people in real world, particularly in our country."
-    if know_cagada == 'N' || know_cagada == 'n'
+    if @know_cagada == 'N' || @know_cagada == 'n'
       communicate("T#{cagada_definition}", 'information')
       ask_enter
       communicate("F#{cagada_importance}", 'information')
@@ -57,6 +57,7 @@ class Interaction
       communicate("I presume you also knows already that, f#{cagada_importance}", 'information')
       ask_enter
     end
+    true
   end
 
   def explain_program
@@ -74,7 +75,7 @@ class Interaction
     ask_enter
     communicate('So much effort that only giant companies like Google, Facebook and few others could carry on!', 'information')
     ask_enter
-    communicate('So much effort that only giant companies like Google, Facebook and few others could carry on!', 'information')
+    communicate("Okay, end of talking! Let's see some of the many 'cagadas' of our dear President!")
     ask_enter
     end
 end
