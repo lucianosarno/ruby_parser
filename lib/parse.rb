@@ -37,7 +37,7 @@ class Parse
         else 
           title = cagada_str
         end
-        puts "/#{@date}|#{title}/" unless @date == nil || title == ''
+        puts "#{@date} | #{title}" unless @date == nil || title == ''
 
       end
     end
