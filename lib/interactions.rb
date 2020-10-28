@@ -37,7 +37,7 @@ class Interaction
     gets.chomp
   end
 
-  def ask_y_or_n
+  def ask_y_or_n(name)
     @know_cagada = ''
     until @know_cagada == 'Y' || @know_cagada == 'N'
       communicate("#{@name}, tell me: do you know what means 'cagada'?", 'question')
@@ -46,11 +46,10 @@ class Interaction
     end
   end
 
-  def cagada_talks
-    ask_y_or_n
+  def cagada_talks(know_cagada)
     cagada_definition = "he literal translation to english is 'shit', but is popularly used to name as 'cagada' some very bad thing that happened or a very bad mistake someone did."
     cagada_importance = "ar away worst than use something that sounds a bad word, is to have a president that do tons of terrible mistakes, all of them fairly called 'cagadas', and these mistakes have serious consequences to people in real world, particularly in our country."
-    if @know_cagada == 'N' || @know_cagada == 'n'
+    if know_cagada == 'N' || know_cagada == 'n'
       communicate("T#{cagada_definition}", 'information')
       ask_enter
       communicate("F#{cagada_importance}", 'information')

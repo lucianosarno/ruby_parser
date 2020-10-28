@@ -4,8 +4,9 @@ require_relative '../lib/parse.rb'
 require_relative '../lib/interactions.rb'
 
 run = Interaction.new
-run.ask_name
-run.cagada_talks
+name = run.ask_name
+know_cagada = run.ask_y_or_n(name)
+run.cagada_talks(know_cagada)
 run.explain_program
 
 cagadas = Parse.new
