@@ -14,6 +14,7 @@ Unfortunately, the lack of records after April 2020 surely means that the websit
 ## Instructions for use
 
 To check and use this project, please clone this repo into your local environment and run the file main.rb.
+Please notice that you will need to use 'bundle install' to get the required gems for the project work on your environment.
 
 ## Author
 
