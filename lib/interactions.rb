@@ -4,22 +4,20 @@ require 'colorize'
 require 'tty-font'
 #this class embraces all user interactions before lauching the parsing operation
 class Interaction
-  def initialize(input: $stdin, output: $stdout)
-    @input = input
-    @output = output
+  def initialize
   end
   
   def communicate(phrase, _type = 'information')
     case _type
     when 'welcome', 'spotlight'
       font = TTY::Font.new(:standard)
-      @output.puts font.write(phrase).colorize(:green).to_s
+      puts font.write(phrase).colorize(:green).to_s
     when 'information', 'question'
-      @output.puts phrase.colorize(:green).to_s
+      puts phrase.colorize(:green).to_s
     when 'call_action'
-      @output.puts phrase.colorize(:yellow).to_s
+      puts phrase.colorize(:yellow).to_s
     else
-      @output.puts phrase
+      puts phrase
     end
   end
 
