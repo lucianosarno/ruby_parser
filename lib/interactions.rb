@@ -13,13 +13,13 @@ class Interaction
     case _type
     when 'welcome', 'spotlight'
       font = TTY::Font.new(:standard)
-      puts font.write(phrase).colorize(:green).to_s
+      @output.puts font.write(phrase).colorize(:green).to_s
     when 'information', 'question'
-      puts phrase.colorize(:green).to_s
+      @output.puts phrase.colorize(:green).to_s
     when 'call_action'
-      puts phrase.colorize(:yellow).to_s
+      @output.puts phrase.colorize(:yellow).to_s
     else
-      puts phrase
+      @output.puts phrase
     end
   end
 
