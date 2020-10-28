@@ -32,7 +32,7 @@ class Parse
           month_str = cagada_str[0, cagada_str.length - 8]
           month_i = portuguese_months[month_str.to_sym]
         elsif cagada_str.include? 'Dia'
-          day_i = cagada_str[4, 5].to_i
+          day_i = cagada_str.gsub(/[^0-3|0-9]/,'').to_i
           @date = Date.new(year,month_i,day_i)
         else 
           title = cagada_str
