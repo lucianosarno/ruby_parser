@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_str_literal: true
 
 require 'nokogiri'
 require 'open-uri'
@@ -16,15 +16,17 @@ class Parse
   def organize_cagadas
     portuguese_months = {'JANEIRO': 1, 'FEVEREIRO': 2, 'MARÇO': 3, 'ABRIL': 4, 'MAIO': 5, 'JUNHO': 6, 'JULHO': 7, 'AGOSTO': 8, 'SETEMBRO': 9, 'OUTUBRO': 10, 'NOVEMBRO': 11, 'DEZEMBRO': 12}
     @cagadas.each do |cagada|
-      cagada_string = cagada.to_s
+      cagada_str = cagada.to_s
       year = 0
-      if cagada_string.include? '2020' || cagada_string.include? '2020'
-      if cagada_string.include? "2020"
-        year = 2020
-      elsif cagada_string.include? "2019"
-        year = 2019
+      if cagada_str.include? ' DE '
+        if cagada_str.include? "2020"
+          year = 2020
+        elsif cagada_str.include? "2019"
+          year = 2019
+        end
+        month_str = cagada_str[0, cagada_str.length - 8]
+        month_int = portuguese_months[month_str.to_sym]
       end
-      puts cagada if cagada_string.include? "2020"
       month = 0
       day = 0
       title = ''
