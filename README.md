@@ -13,8 +13,19 @@ Unfortunately, the lack of records after April 2020 surely means that the websit
 
 ## Instructions for use
 
-To check and use this project, please clone this repo into your local environment and run the file main.rb.
-Please notice that you will need to use 'bundle install' to get the required gems for the project work on your environment.
+To check and use this project, please clone this repo into your local environment:
+- git clone https://github.com/lucianosarno/ruby_scraper
+- cd my-project-folder/ruby_scraper
+
+Please notice that you will need to install some gems into your local machine:
+- gem 'colorize', '~> 0.8.1'
+- gem 'nokogiri'
+- gem 'open-uri'
+- gem 'rubocop', '~>0.81.0'
+- gem 'tty-font'
+
+Run the file main.rb:
+- ruby bin/main.rb
 
 ## Author
 
