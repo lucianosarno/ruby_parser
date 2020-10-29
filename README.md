@@ -10,8 +10,10 @@ Unfortunately, the lack of records after April 2020 surely means that the websit
 ## Built With
 
 - Ruby
-- Nokogiri
-- 
+- Nokogiri Gem
+- Colorize Gem
+- Open-Uri Gem
+- TTY-Font Gem
 
 ## Instructions for use
 

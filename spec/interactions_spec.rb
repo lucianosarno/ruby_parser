@@ -1,4 +1,4 @@
-require '../lib/interactions.rb'
+require_relative '../lib/interactions.rb'
 
 describe Interaction do
   inter = Interaction.new
