@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
-
 require 'nokogiri'
 require 'open-uri'
 require 'date'
@@ -42,4 +40,3 @@ class Parse
     end
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
