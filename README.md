@@ -1,19 +1,31 @@
-# Capstone Project (Online shop)
+# Capstone Project (Ruby Scraper)
 
 > This is my Capstone Project for the Ruby module of the Microverse course.
 In this project, I was required to create a parser from any website available on the internet.
 The choosen website was cagometro.com, a website dedicated to count the worst-mistakes (popularly called "cagadas" or, in english, "shits") done by Brazil's actual President Jair Bolsonaro.
 Unfortunately, the lack of records after April 2020 surely means that the website is no longer being updated. 
 
-![screenshot]()
+![screenshot](screenshot.PNG)
 
 ## Built With
 
-- Ruby
+- Ruby!
+- Nokogiri Gem
+- Colorize Gem
+- Open-Uri Gem
+- TTY-Font Gem
 
-## Live Demo
+## Instructions for use
 
-[Live Demo Link]()
+To check and use this project, please clone this repo into your local environment:
+- git clone https://github.com/lucianosarno/ruby_scraper
+- cd my-project-folder/ruby_scraper
+
+Please notice that you will need to install some gems into your local machine:
+- bundle install
+
+Run the file main.rb:
+- ruby bin/main.rb
 
 ## Author
 
