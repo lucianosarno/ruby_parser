@@ -1,5 +1,7 @@
 # rubocop:disable Layout/LineLength, Style/IdenticalConditionalBranches
 
+gem 'colorize', '~> 0.8.1'
+
 require 'colorize'
 require 'tty-font'
 # this class embraces all user interactions before lauching the parsing operation
