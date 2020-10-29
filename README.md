@@ -9,7 +9,7 @@ Unfortunately, the lack of records after April 2020 surely means that the websit
 
 ## Built With
 
-- Ruby
+- Ruby!
 - Nokogiri Gem
 - Colorize Gem
 - Open-Uri Gem
@@ -22,11 +22,7 @@ To check and use this project, please clone this repo into your local environmen
 - cd my-project-folder/ruby_scraper
 
 Please notice that you will need to install some gems into your local machine:
-- gem 'colorize', '~> 0.8.1'
-- gem 'nokogiri'
-- gem 'open-uri'
-- gem 'rubocop', '~>0.81.0'
-- gem 'tty-font'
+- bundle install
 
 Run the file main.rb:
 - ruby bin/main.rb
