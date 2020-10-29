@@ -2,14 +2,17 @@ require 'nokogiri'
 require 'open-uri'
 require 'date'
 
-# this class is responsible for the methods that catches the information from 'cagometro.com' and organize in a structured way
+# this class is responsible for the methods that catches the information from 'cagometro.com'
+# and also organize in a structured way
 class Parse
   def initialize
     @cagometro = Nokogiri::HTML(URI.open('http://www.cagometro.com/'))
   end
 
   def catch_cagadas
-    @cagadas = @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text() | //p[contains(.,"Dia")]//a//text() | //p[contains(.,"2020") or contains(.,"2019")]//a//text()')
+    @cagadas = @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text()')
+    @cagadas += @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text()')
+    @cagadas += @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//a//text()')
   end
 
   def organize_cagadas
