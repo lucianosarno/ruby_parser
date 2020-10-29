@@ -2,6 +2,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'date'
 
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+
 # this class is responsible for the methods that catches the information from 'cagometro.com'
 # and also organize in a structured way
 class Parse
@@ -10,15 +12,13 @@ class Parse
   end
 
   def catch_cagadas
-    @cagadas = @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text()')
-    @cagadas += @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//text()')
-    @cagadas += @cagometro.xpath('//p[contains(.,"2020") or contains(.,"2019")]//a//text()')
+    xpath_string = '//p[contains(.,"2020") or contains(.,"2019")]//text() | ' \
+    '//p[contains(.,"Dia")]//a//text() | ' \
+    '//p[contains(.,"2020") or contains(.,"2019")]//a//text()'
+    @cagadas = @cagometro.xpath(xpath_string)
   end
 
   def organize_cagadas
-    portuguese_months = { 'JANEIRO': 1, 'FEVEREIRO': 2, 'MARÇO': 3, 'ABRIL': 4 }
-    portuguese_months += { 'MAIO': 5, 'JUNHO': 6, 'JULHO': 7, 'AGOSTO': 8 }
-    portuguese_months += { 'SETEMBRO': 9, 'OUTUBRO': 10, 'NOVEMBRO': 11, 'DEZEMBRO': 12 }
     year = 0
     month_i = 0
     day_i = 0
@@ -44,4 +44,15 @@ class Parse
       puts "#{@date} | #{title}" unless @date.nil? || title == ''
     end
   end
+
+  private
+
+  def portuguese_months
+    { 'JANEIRO': 1, 'FEVEREIRO': 2, 'MARÇO': 3,
+      'ABRIL': 4, 'MAIO': 5, 'JUNHO': 6,
+      'JULHO': 7, 'AGOSTO': 8, 'SETEMBRO': 9,
+      'OUTUBRO': 10, 'NOVEMBRO': 11, 'DEZEMBRO': 12 }
+  end
 end
+
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
